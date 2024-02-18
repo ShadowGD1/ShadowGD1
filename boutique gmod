@@ -1,0 +1,25 @@
+-- shop.lua
+
+-- Créez une table pour stocker les articles de la boutique
+local shopItems = {}
+
+-- Ajoutez des articles à la boutique
+function AddItemToShop(name, price, description)
+    table.insert(shopItems, {name = name, price = price, description = description})
+end
+
+-- Fonction pour afficher la boutique à un joueur
+function ShowShopToPlayer(player)
+    -- Affichez les articles de la boutique au joueur (vous devrez ajuster cette partie en fonction de votre interface utilisateur)
+    for _, item in ipairs(shopItems) do
+        player:ChatPrint("Item: " .. item.name .. ", Price: " .. item.price .. ", Description: " .. item.description)
+    end
+end
+
+-- Exemple d'utilisation
+AddItemToShop("Item1", 10, "Description de l'item 1")
+AddItemToShop("Item2", 20, "Description de l'item 2")
+
+-- Pour tester, affichez la boutique pour un joueur
+local player = Entity(1) -- Remplacez cela par la référence au joueur approprié
+ShowShopToPlayer(player)
